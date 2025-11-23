@@ -4,15 +4,25 @@
   <meta charset="UTF-8" />
   <title>Redirecting…</title>
   <script>
-    // Get the path portion of the URL
+    // Full pathname, e.g. /live/test123
     const path = window.location.pathname;
 
-    // If the path starts with /live/, treat the next part as the gameId
-    if (path.startsWith("/live/")) {
+    // Match /live/<gameId>
+    const livePrefix = "/live/";
+
+    if (path.startsWith(livePrefix)) {
       const parts = path.split("/");
+
+      // parts[2] should be the gameId
       const gameId = parts[2] || "";
-      const target = `/live/index.html?game=${encodeURIComponent(gameId)}`;
-      window.location.replace(target);
+
+      // IMPORTANT: include ?game=<id> in redirect
+      const newUrl = `/live/index.html?game=${encodeURIComponent(gameId)}`;
+
+      window.location.replace(newUrl);
+    } else {
+      // Default fallback — show a simple 404 message or redirect home
+      window.location.replace("/");
     }
   </script>
 </head>
