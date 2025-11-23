@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Redirecting…</title>
+  <script>
+    // Get the path portion of the URL
+    const path = window.location.pathname;
+
+    // If the path starts with /live/, treat the next part as the gameId
+    if (path.startsWith("/live/")) {
+      const parts = path.split("/");
+      const gameId = parts[2] || "";
+      const target = `/live/index.html?game=${encodeURIComponent(gameId)}`;
+      window.location.replace(target);
+    }
+  </script>
+</head>
+<body>
+  Redirecting…
+</body>
+</html>
