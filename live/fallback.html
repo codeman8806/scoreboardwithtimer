@@ -94,42 +94,39 @@
 
   <script>
     (function () {
-      // Get the path, e.g. "/live/test123"
-      var path = window.location.pathname || "";
-      var gameId = "";
 
-      // Expecting /live/<gameId>
-      var prefix = "/live/";
-      if (path.toLowerCase().startsWith(prefix)) {
-        gameId = path.slice(prefix.length);
-      }
+      // 1️⃣ FIRST: Check if redirected here with ?game=<id>
+      const urlParams = new URLSearchParams(window.location.search);
+      let gameId = urlParams.get("game");
 
-      var gameIdText = document.getElementById("game-id-text");
-      if (gameId) {
-        gameIdText.textContent = "Game code: " + gameId;
-      } else {
-        gameIdText.textContent = "No game code was detected in this link.";
-      }
+      // 2️⃣ If no ?game= param, fallback to extracting from path /live/<id>
+      if (!gameId) {
+        const path = window.location.pathname || "";
+        const prefix = "/live/";
 
-      // When user taps "Open in Scoreboard With Timer App"
-      var btn = document.getElementById("open-app-btn");
-      btn.addEventListener("click", function () {
-        if (!gameId) {
-          btn.disabled = true;
-          btn.textContent = "No game code found";
-          return;
+        if (path.startsWith(prefix)) {
+          const parts = path.replace(prefix, "").split("/");
+          if (parts[0] && parts[0].toLowerCase() !== "index.html" && parts[0].toLowerCase() !== "fallback.html") {
+            gameId = parts[0];
+          }
         }
+      }
 
-        // Custom scheme deep link – app is already configured to handle /live/:gameId
-        var appUrl = "scoreboardwithtimer://live/" + encodeURIComponent(gameId);
+      // 3️⃣ Update UI to show code or message
+      const gameIdText = document.getElementById("game-id-text");
+      gameIdText.textContent = gameId
+        ? "Game code: " + gameId
+        : "No game code was detected in this link.";
 
-        // Try to open the app
+      // 4️⃣ Deep link open button
+      const btn = document.getElementById("open-app-btn");
+      btn.addEventListener("click", function () {
+        if (!gameId) return;
+        const appUrl = "scoreboardwithtimer://live/" + encodeURIComponent(gameId);
         window.location.href = appUrl;
-
-        // Optionally: after a delay, user can still use store badges if app isn't installed
       });
+
     })();
   </script>
 </body>
 </html>
-
