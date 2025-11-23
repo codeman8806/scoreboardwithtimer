@@ -1,1 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Join Live Game – Scoreboard With Timer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="description" content="Join a live scoreboard game in the Scoreboard With Timer app. Watch scores update in real time." />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #050816;
+      color: #f9fafb;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .wrap {
+      max-width: 640px;
+      padding: 24px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 1.9rem;
+      margin-bottom: 0.25rem;
+    }
+    .game-id {
+      font-size: 1.1rem;
+      margin-bottom: 1.25rem;
+      opacity: 0.9;
+      word-break: break-all;
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 999px;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 16px;
+      text-decoration: none;
+      background: #22c55e;
+      color: #021016;
+    }
+    .cta-button:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin: 16px 0 24px;
+    }
+    .badge-link img {
+      height: 48px;
+      max-width: 160px;
+    }
+    .note {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      margin-top: 0.75rem;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Join Live Game</h1>
+    <p class="game-id" id="game-id-text">Loading game…</p>
+
+    <button id="open-app-btn" class="cta-button">
+      Open in Scoreboard With Timer App
+    </button>
+
+    <div class="badges">
+      <a class="badge-link" href="https://apps.apple.com/us/app/scoreboard-with-timer/id6755154699" target="_blank" rel="noopener">
+        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store">
+      </a>
+      <a class="badge-link" href="https://play.google.com/store/apps/details?id=com.codeman8806.scoreboardwithtimer" target="_blank" rel="noopener">
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+      </a>
+    </div>
+
+    <p class="note">
+      If the app doesn't open automatically, install it using the buttons above, then try this link again.
+    </p>
+  </main>
+
+  <script>
+    (function () {
+      // Get the path, e.g. "/live/test123"
+      var path = window.location.pathname || "";
+      var gameId = "";
+
+      // Expecting /live/<gameId>
+      var prefix = "/live/";
+      if (path.toLowerCase().startsWith(prefix)) {
+        gameId = path.slice(prefix.length);
+      }
+
+      var gameIdText = document.getElementById("game-id-text");
+      if (gameId) {
+        gameIdText.textContent = "Game code: " + gameId;
+      } else {
+        gameIdText.textContent = "No game code was detected in this link.";
+      }
+
+      // When user taps "Open in Scoreboard With Timer App"
+      var btn = document.getElementById("open-app-btn");
+      btn.addEventListener("click", function () {
+        if (!gameId) {
+          btn.disabled = true;
+          btn.textContent = "No game code found";
+          return;
+        }
+
+        // Custom scheme deep link – app is already configured to handle /live/:gameId
+        var appUrl = "scoreboardwithtimer://live/" + encodeURIComponent(gameId);
+
+        // Try to open the app
+        window.location.href = appUrl;
+
+        // Optionally: after a delay, user can still use store badges if app isn't installed
+      });
+    })();
+  </script>
+</body>
+</html>
 
