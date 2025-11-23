@@ -1,1 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.codeman8806.scoreboardwithtimer",
+      "sha256_cert_fingerprints": [
+        "DE:0D:17:8C:48:35:53:FD:4E:6C:AF:BD:65:AA:64:CE:E9:54:BF:7A:B6:81:A2:B3:34:5E:F5:2C:10:C5:37:8B"
+      ]
+    }
+  }
+]
 
