@@ -2,81 +2,123 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Join Live Game – Scoreboard With Timer</title>
+  <title>Scoreboard With Timer – Free Scoreboard & Game Clock App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="description" content="Join a live scoreboard game in the Scoreboard With Timer app. Watch scores update in real time." />
+  <!-- Basic SEO -->
+  <meta name="description" content="Turn your phone or tablet into a clean, customizable scoreboard and game clock. Perfect for basketball, football, soccer, volleyball, hockey, and more." />
+  <meta name="keywords" content="scoreboard app, game clock, sports scoreboard, timer app, basketball scoreboard, football scoreboard, soccer scoreboard" />
 
+  <!-- Open Graph -->
+  <meta property="og:title" content="Scoreboard With Timer" />
+  <meta property="og:description" content="Free scoreboard and timer app for basketball, soccer, football, volleyball, hockey, and more." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://scoreboardwithtimer.com" />
+
+  <!-- Simple styling -->
   <style>
     body {
-      margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
       background: #050816;
       color: #f9fafb;
-      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      min-height: 100vh;
     }
     .wrap {
-      max-width: 640px;
+      max-width: 720px;
       padding: 24px;
       text-align: center;
     }
     h1 {
-      font-size: 1.9rem;
-      margin-bottom: 0.25rem;
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
     }
-    .game-id {
-      font-size: 1.1rem;
-      margin-bottom: 1.25rem;
+    p.lead {
+      font-size: 1.05rem;
       opacity: 0.9;
-      word-break: break-all;
-    }
-    .cta-button {
-      display: inline-block;
-      padding: 12px 20px;
-      border-radius: 999px;
-      border: none;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      margin-bottom: 16px;
-      text-decoration: none;
-      background: #22c55e;
-      color: #021016;
-    }
-    .cta-button:disabled {
-      opacity: 0.6;
-      cursor: default;
+      margin-bottom: 1.25rem;
     }
     .badges {
       display: flex;
-      flex-wrap: wrap;
       gap: 12px;
+      flex-wrap: wrap;
       justify-content: center;
       margin: 16px 0 24px;
     }
     .badge-link img {
-      height: 48px;
+      height: 54px;
       max-width: 160px;
     }
-    .note {
+    .features {
+      text-align: left;
+      margin: 0 auto;
+      max-width: 540px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .features h2 {
+      font-size: 1.2rem;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    ul {
+      padding-left: 1.25rem;
+    }
+
+    /* Cross-link box */
+    .other-app {
+      margin: 40px auto 0;
+      padding: 20px 24px;
+      background: #0c1124;
+      border-radius: 16px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.3);
+      max-width: 520px;
+      text-align: center;
+    }
+    .other-app h3 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+      color: #93c5fd;
+    }
+    .other-app p {
+      margin: 0 0 16px;
       font-size: 0.9rem;
+      color: #cbd5e1;
+    }
+    .other-app a {
+      display: inline-block;
+      padding: 10px 18px;
+      background: #3d0070;
+      color: #fff;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .other-app a:hover {
       opacity: 0.85;
-      margin-top: 0.75rem;
-      line-height: 1.4;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+    footer a {
+      color: #93c5fd;
     }
   </style>
 </head>
 <body>
   <main class="wrap">
-    <h1>Join Live Game</h1>
-    <p class="game-id" id="game-id-text">Loading game…</p>
-
-    <button id="open-app-btn" class="cta-button">
-      Open in Scoreboard With Timer App
-    </button>
+    <h1>Scoreboard With Timer</h1>
+    <p class="lead">
+      Turn your phone or tablet into a clean, customizable scoreboard and game clock.
+      Perfect for basketball, football, soccer, volleyball, hockey, table tennis, and more.
+    </p>
 
     <div class="badges">
       <a class="badge-link" href="https://apps.apple.com/us/app/scoreboard-with-timer/id6755154699" target="_blank" rel="noopener">
@@ -87,45 +129,37 @@
       </a>
     </div>
 
-    <p class="note">
-      If the app doesn't open automatically, install it using the buttons above, then try this link again.
-    </p>
+    <section class="features">
+      <h2>Why people use Scoreboard With Timer</h2>
+      <ul>
+        <li>Tap to quickly add or subtract points, goals, or sets.</li>
+        <li>Built-in game timer for periods, halves, and quarters.</li>
+        <li>Save and reopen previous games with history.</li>
+        <li>Works great for tournaments, school sports, rec leagues, and backyard games.</li>
+      </ul>
+
+      <h2>Pro features</h2>
+      <ul>
+        <li>Live score sharing – send a link so others can follow in real time.</li>
+        <li>Custom team colors and buzzer sounds.</li>
+        <li>Ad-free mode so you can focus on the game.</li>
+      </ul>
+    </section>
+
+    <!-- ⭐ Cross-link to Holiday Calendar App -->
+    <div class="other-app">
+      <h3>Check Out My Other App</h3>
+      <p>Discover a fun, weird, obscure holiday every day with artwork and reminders.</p>
+      <a href="https://www.obscureholidaycalendar.com">Obscure Holiday Calendar</a>
+    </div>
+
+    <footer>
+      &copy; <span id="year"></span> Scoreboard With Timer · <a href="/privacy">Privacy</a>
+    </footer>
   </main>
 
   <script>
-    (function () {
-
-      // 1️⃣ Try reading ?game=<value> first
-      const urlParams = new URLSearchParams(window.location.search);
-      let gameId = urlParams.get("game");
-
-      // 2️⃣ If no query param, fall back to pathname (/live/<ID>)
-      if (!gameId) {
-        const path = window.location.pathname || "";
-        const prefix = "/live/";
-        if (path.startsWith(prefix)) {
-          const parts = path.replace(prefix, "").split("/");
-          if (parts[0] && parts[0].toLowerCase() !== "index.html") {
-            gameId = parts[0];
-          }
-        }
-      }
-
-      // 3️⃣ Populate UI
-      const gameIdText = document.getElementById("game-id-text");
-      gameIdText.textContent = gameId
-        ? "Game code: " + gameId
-        : "No game code was detected in this link.";
-
-      // 4️⃣ Open in app
-      const btn = document.getElementById("open-app-btn");
-      btn.addEventListener("click", function () {
-        if (!gameId) return;
-        const appUrl = "scoreboardwithtimer://live/" + encodeURIComponent(gameId);
-        window.location.href = appUrl;
-      });
-
-    })();
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
